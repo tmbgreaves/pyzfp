@@ -1,7 +1,0 @@
-
-name: pyzfp
-channels:
-  - defaults
-  - conda-forge
-dependencies:
-  - cython
