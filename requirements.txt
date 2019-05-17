@@ -1,1 +1,3 @@
 pyzfp~=0.2rc2
+Cython
+requests
