@@ -26,6 +26,10 @@ RUN apt-get -y install wget bzip2 git make
 # Default gcc version to install
 ARG gccVersion=8
 
+# Default devito install method
+ARG installWithPip=false
+ENV testWithPip=$installWithPip
+
 # Use MPI?
 ARG MPI_INSTALL=1
 ENV MPI_INSTALL=$MPI_INSTALL
@@ -69,4 +73,10 @@ RUN chown -R pyzfp /home/pyzfp
 USER pyzfp
 WORKDIR /home/pyzfp
 
-RUN pip install -e .
+RUN if [ $installWithPip == "true" ] ; then \ 
+        pip install --user -e . ; \
+    else \
+      conda env create --name pyzfp ; \
+      source activate pyzfp ; \
+      pip install -e . ; \
+    fi
