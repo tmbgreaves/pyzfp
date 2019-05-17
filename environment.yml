@@ -3,4 +3,5 @@ name: pyzfp
 channels:
   - defaults
 dependencies:
+  - pip:
     - pyzfp~=0.2rc2
