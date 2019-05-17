@@ -1,0 +1,6 @@
+
+name: pyzfp
+channels:
+  - defaults
+dependencies:
+    - pyzfp~=0.2rc2
