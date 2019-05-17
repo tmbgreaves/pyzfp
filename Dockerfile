@@ -76,7 +76,5 @@ WORKDIR /home/pyzfp
 RUN if [ $installWithPip == "true" ] ; then \ 
         pip install --user -e . ; \
     else \
-      conda env create --name pyzfp ; \
-      source activate pyzfp ; \
-      pip install -e . ; \
+      conda env create -q -f environment.yml ; \
     fi
